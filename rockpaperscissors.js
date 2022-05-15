@@ -1,9 +1,9 @@
 // Computer Picks R/P/S
 
 
-
+// Randomly generate a choice for the computer
 function computerPlay(){
-    // computer's choice.  random number between 0-2
+ 
     
     return Math.floor(Math.random() * 3);
 
@@ -20,12 +20,9 @@ function getPlayerSelection()
     return(selection);
 }
 
-    // Play one round of RPS
+// Play one round of RPS
 function playRound(playerSelection, computerSelection){
-    // Debug
-    //console.log(playerSelection);
-    //console.log(computerSelection);
-    
+  
     if (playerSelection === computerSelection){
         return(`Tie!  You both chose ${choiceToString(playerSelection)}`);
     }
@@ -37,12 +34,8 @@ function playRound(playerSelection, computerSelection){
     else {
         return (`You won! ${choiceToString(playerSelection)} beats ${choiceToString(computerSelection)}`);
     }
-
-    
 }
 
-
-//const playerSelection = getPlayerSelection();
 // Convert player choice (string) to number for comparison
 function choiceToNumber(selection){
     switch (selection.toLowerCase()){
@@ -60,7 +53,7 @@ function choiceToNumber(selection){
 
     }
 }
-// Convert numerical choice to string
+// Convert numerical choice to string for use in game
 function choiceToString(selection){
     switch (selection){
         case 0:
