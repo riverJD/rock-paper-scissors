@@ -9,22 +9,9 @@ function computerPlay(){
 
     }
 
-// Get prompt from user, store their response as a whole number
-function getPlayerSelection()
-{
-    let selection;
-    
-    while (selection == null){
-        selection = choiceToNumber(prompt("Please choose Rock, Paper, Scissors"));
-    }
-    return(selection);
-}
-
     // Play one round of RPS
 function playRound(playerSelection, computerSelection){
-    // Debug
-    //console.log(playerSelection);
-    //console.log(computerSelection);
+
     
     if (playerSelection === computerSelection){
         return(`Tie!  You both chose ${choiceToString(playerSelection)}`);
@@ -41,8 +28,18 @@ function playRound(playerSelection, computerSelection){
     
 }
 
+function getPlayerSelection()
+{
+    const playerSelection = prompt("Please choose Rock, Paper, Scissors");
 
-//const playerSelection = getPlayerSelection();
+    if (choiceToNumber(playerSelection) == undefined)
+    {
+        getPlayerSelection();
+    }
+}
+
+const computerSelection = computerPlay();
+
 // Convert player choice (string) to number for comparison
 function choiceToNumber(selection){
     switch (selection.toLowerCase()){
@@ -56,10 +53,11 @@ function choiceToNumber(selection){
             return 2;
 
         default:
-            return null;
+            console.log("You did not enter a valid choice!");  
 
     }
 }
+
 // Convert numerical choice to string
 function choiceToString(selection){
     switch (selection){
@@ -75,13 +73,19 @@ function choiceToString(selection){
     }
 }
 
-function game(roundsToPlay)
-{
-    for (let i = 0; i < roundsToPlay; i++){
-        console.log(playRound(getPlayerSelection(), computerPlay()));
-    }
-}
+console.log(playRound(choiceToNumber(getPlayerSelection()), computerSelection));
 
-game(5);
+// Assign numberic value to response
 
-//console.log(playRound(getPlayerSelection(), computerPlay()));
+// Ask for User to Choose R/P/S
+    
+//Assign numeric value to response
+
+
+//Compare values
+
+
+//Display winner of round
+
+
+//Function to start x number of rounds
