@@ -1,26 +1,14 @@
 // Computer Picks R/P/S
 
+let cpuScore;
+let playerScore;
 
+resetScores();
 // Randomly generate a choice for the computer
-function computerPlay(){
- 
-    
+function computerSelection() { 
     return Math.floor(Math.random() * 3);
-
-    }
-
-// Get prompt from user, store their response as a whole number
-function playerSelection()
-{
-    let selection;
-    
-    while (selection == null){
-        selection = choiceToNumber(prompt("Please choose Rock, Paper, Scissors"));
-    }
-    return(selection);
 }
 
-// Play one round of RPS
 // Convert player choice (string) to number for comparison
 function choiceToNumber(selection){
     switch (selection.toLowerCase()){
@@ -53,29 +41,22 @@ function choiceToString(selection){
     }
 }
 
-function game(roundsToPlay)
-{
-    for (let i = 0; i < roundsToPlay; i++){
-        console.log(playRound(getPlayerSelection(), computerPlay()));
-    }
-}
-
 function playRound(playerSelection, computerSelection){
   
     if (playerSelection === computerSelection){
-        setWinner(`Tie!  You both chose ${choiceToString(playerSelection)}`);
+        setRoundWinnerText(`Tie!  You both chose ${choiceToString(playerSelection)}`);
     }
     // Adding 1 to playerSelection and performing %(number of choice) will wrap the highest
     // number choice.  If this number is equal to computerSelection, player loses. 
     else if ((playerSelection + 1) % 3 === computerSelection){
-        setWinner(`You lose! ${choiceToString(computerSelection)} beats ${choiceToString(playerSelection)}!`);
+        updateCpuScore();
+        setRoundWinnerText(`You lose! ${choiceToString(computerSelection)} beats ${choiceToString(playerSelection)}!`);
     }
     else {
-        setWinner(`You won! ${choiceToString(playerSelection)} beats ${choiceToString(computerSelection)}`);
+        updatePlayerScore();
+        setRoundWinnerText(`You won! ${choiceToString(playerSelection)} beats ${choiceToString(computerSelection)}`);
     }
 }
-
-
 
 let buttons = document.querySelectorAll('.button');
 console.log(buttons);
@@ -83,7 +64,7 @@ console.log(buttons);
 buttons.forEach(button => {
     button.addEventListener('click', () => { 
         
-        playRound(playerSelection(button.firstElementChild.getAttribute('id')), computerPlay());
+        playRound(playerSelection(button.firstElementChild.getAttribute('id')), computerSelection());
     
     });
 });
@@ -91,14 +72,63 @@ buttons.forEach(button => {
 function playerSelection(choice) { return choiceToNumber(choice) };
 
 
-function setWinner(winner){
-    const div = document.querySelector('.score');
-    console.log(div);
+function setRoundWinnerText(winner){
+    const div = document.querySelector('#score-text');   
+    //console.log(div);
     div.textContent = winner;
+    div.childElementCount
 
 }
 
+function updateCpuScore(){
+    
+    cpuScore += 1;
+    updateScoreBoard()
+    if (cpuScore === 5){
+        setGameWinner('computer')
+        return;
+    }
+ 
+    console.log('cpu' + cpuScore);
 
+    //console.log(div);
+
+}
+function updatePlayerScore(){
+    
+    playerScore += 1;
+    updateScoreBoard()
+    if (playerScore === 5){
+        setGameWinner('computer')
+        return;
+    }
+    //console.log('player: ' + playerScore);
+
+}
+
+function updateScoreBoard(){
+    const player = document.getElementById('player');
+    const cpu = document.getElementById('computer');
+    //console.log(div);
+    player.textContent = playerScore;
+    cpu.textContent = cpuScore;
+}
+
+function setGameWinner(winner){
+    
+    updateScoreBoard()
+    const gameWinner = document.querySelector(`#win-text`);
+    console.log('debug' + gameWinner);
+    gameWinner.textContent = `${winner} won!  Score was: ${playerScore} to ${cpuScore}!`;
+    resetScores();
+}
+
+function resetScores(){
+    
+    cpuScore = 0;
+    playerScore = 0;
+    
+}
 
 //game();
 
