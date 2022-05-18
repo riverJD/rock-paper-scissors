@@ -10,7 +10,7 @@ function computerPlay(){
     }
 
 // Get prompt from user, store their response as a whole number
-function getPlayerSelection()
+function playerSelection()
 {
     let selection;
     
@@ -75,6 +75,25 @@ function game(roundsToPlay)
     }
 }
 
-game(5);
+
+let buttons = document.querySelectorAll('.button');
+console.log(buttons);
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => { 
+
+    const playerChoice = button.firstElementChild.getAttribute('id')
+    console.log(playRound(choiceToNumber(playerChoice), computerPlay()));
+    console.log(playerChoice);
+        
+        //id = button.getAttribute('id');
+        //onsole.log(id);
+
+    });
+    });
+
+
+
+//game();
 
 //console.log(playRound(getPlayerSelection(), computerPlay()));
