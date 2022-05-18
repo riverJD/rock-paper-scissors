@@ -5,7 +5,7 @@ body{
     background-color: #d8c395;
     align-items: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-
+    
 }
 
 
@@ -29,7 +29,11 @@ body{
     font-weight: 900;
     font-size: 48px;
     background-color: #c0a270;
-    border: 1px dotted red;
+    padding: 5px 25px;
+    border-top: 5px solid #687450;
+    border-bottom: 5px solid #687450;
+    border-left: 100px solid #687450;
+    border-right: 100px solid #687450;
 
 }
 
@@ -41,17 +45,19 @@ body{
 .text{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    font-size: 24px;
-    color: black;
-    font-weight: 800;
-    flex: 1;
+    align-items: center;
     min-width: 200px;
     max-width: 300px;
     height: 800px;
+    flex: 1;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 5px;
 
     background-color: #c0a270;
+    color: black;
     justify-content: flex-start;
+    border: 10px solid #dbccab;
 
 
 }
@@ -78,12 +84,18 @@ body{
 
 .text{
     display: flex;
+    
+}
+
+.deck{
+
 }
 
 .card{
     display: flex;
     height: auto;
     width: 200px;
+    border: 5px solid #687450;
 }
 
 .region2{
