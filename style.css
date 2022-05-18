@@ -1,68 +1,143 @@
 
+
 body{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px;
+    min-height: 100vh;
     background-color: #d8c395;
-    align-items: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
+ 
+    /*background-image: url(images/map.jpg); */
     
 }
 
+.main{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+
+    margin-top: auto;
+    height: 50px;
+    border-top: 10px solid #dbccab;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+    background-color: #c0a270;
+}
 
 .game{
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    align-items: center;
     justify-content: space-between;
-    margin: 100px 0px;
-    flex: 0 0 auto;
+    align-items: center;
+    
+    padding: 10px;
+    
+    border: 10px solid #dbccab;
+    border-radius: 10px;
+    
     background-color: #c0a270;
 
+}
+
+.title-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border-top: 5px solid #687450;
+    border-bottom: 5px solid #687450;
+    border-left: 100px solid #687450;
+    border-right: 100px solid #687450;
+    border-radius: 10px;
+    
+    font-weight: 900;
+    font-size: 48px;
+    background-color: #687450;
 }
 
 #title{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: 900;
-    font-size: 48px;
     background-color: #c0a270;
-    padding: 5px 25px;
-    border-top: 5px solid #687450;
-    border-bottom: 5px solid #687450;
-    border-left: 100px solid #687450;
-    border-right: 100px solid #687450;
-
+    border: 5px solid #c0a270;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #subtitle{
     font-size: 24px;
+    border-radius: 10px;
+    
 }
 
 .scoreboard,
-.text{
+.text-content{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+
     min-width: 200px;
     max-width: 300px;
     height: 800px;
+    max-height: 800px;
     flex: 1;
-    font-size: 24px;
-    font-weight: 800;
-    padding: 5px;
-
-    background-color: #c0a270;
-    color: black;
-    justify-content: flex-start;
+    padding: 10px;
     border: 10px solid #dbccab;
 
+    font-size: 24px;
+    font-weight: 800;
+    background-color: #c0a270;
+    color: black;
+}
+.scoreboard{
+    border-top-left-radius:  10px;
+    border-bottom-left-radius: 10px;
+    
+}
 
+.instructions img{
+   height: auto; 
+    width: 100px;
+}
+
+.instructions{
+    font-size: 18px;
 }
 
 
+.text-content{
+
+    
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+
+.icons{
+    font-size: smaller;
+    
+}
+
+.icon{
+    
+    display: flex;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    border: 1px solid red;
+}
 
 .score{
     display: flex;
@@ -80,35 +155,36 @@ body{
     display: flex;
     flex-direction: column;
     border: 10px solid #c0a270;
-}
 
-.text{
-    display: flex;
-    
-}
-
-.deck{
 
 }
+
+
 
 .card{
     display: flex;
     height: auto;
     width: 200px;
-    border: 5px solid #687450;
+    border: 10px solid #687450;
+    border-radius: 10px;
+}
+
+.card:hover{
+    border: 20px solid #687450;
 }
 
 .region2{
     display :flex;
     height: auto;
     width: 750px;
+    border-radius: 10px;
 
 }
 
 .deck{
     display: flex;
-    width: 750px;
     justify-content: space-between;
+    width: 750px;
     margin-top: 20px;
 
 }
@@ -116,5 +192,10 @@ body{
 .selected{
     border: 5px solid #d3cabb;
     margin-top: 30px;
-    scale: 1.2;
+    scale: 1.5;
+}
+
+#suntzu{
+    font-size: 16px;
+    font-style: oblique;
 }
