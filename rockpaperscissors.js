@@ -21,21 +21,6 @@ function playerSelection()
 }
 
 // Play one round of RPS
-function playRound(playerSelection, computerSelection){
-  
-    if (playerSelection === computerSelection){
-        return(`Tie!  You both chose ${choiceToString(playerSelection)}`);
-    }
-    // Adding 1 to playerSelection and performing %(number of choice) will wrap the highest
-    // number choice.  If this number is equal to computerSelection, player loses. 
-    else if ((playerSelection + 1) % 3 === computerSelection){
-        return(`You lose! ${choiceToString(computerSelection)} beats ${choiceToString(playerSelection)}!`);
-    }
-    else {
-        return (`You won! ${choiceToString(playerSelection)} beats ${choiceToString(computerSelection)}`);
-    }
-}
-
 // Convert player choice (string) to number for comparison
 function choiceToNumber(selection){
     switch (selection.toLowerCase()){
@@ -75,22 +60,43 @@ function game(roundsToPlay)
     }
 }
 
+function playRound(playerSelection, computerSelection){
+  
+    if (playerSelection === computerSelection){
+        setWinner(`Tie!  You both chose ${choiceToString(playerSelection)}`);
+    }
+    // Adding 1 to playerSelection and performing %(number of choice) will wrap the highest
+    // number choice.  If this number is equal to computerSelection, player loses. 
+    else if ((playerSelection + 1) % 3 === computerSelection){
+        setWinner(`You lose! ${choiceToString(computerSelection)} beats ${choiceToString(playerSelection)}!`);
+    }
+    else {
+        setWinner(`You won! ${choiceToString(playerSelection)} beats ${choiceToString(computerSelection)}`);
+    }
+}
+
+
 
 let buttons = document.querySelectorAll('.button');
 console.log(buttons);
 
 buttons.forEach(button => {
     button.addEventListener('click', () => { 
-
-    const playerChoice = button.firstElementChild.getAttribute('id')
-    console.log(playRound(choiceToNumber(playerChoice), computerPlay()));
-    console.log(playerChoice);
         
-        //id = button.getAttribute('id');
-        //onsole.log(id);
+        playRound(playerSelection(button.firstElementChild.getAttribute('id')), computerPlay());
+    
+    });
+});
 
-    });
-    });
+function playerSelection(choice) { return choiceToNumber(choice) };
+
+
+function setWinner(winner){
+    const div = document.querySelector('.score');
+    console.log(div);
+    div.textContent = winner;
+
+}
 
 
 
