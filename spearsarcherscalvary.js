@@ -85,7 +85,7 @@ function updateCpuScore(){
     cpuScore += 1;
     updateScoreBoard()
     if (cpuScore === 5){
-        setGameWinner('computer')
+        setGameWinner('Opponent');
         return;
     }
  
@@ -99,7 +99,7 @@ function updatePlayerScore(){
     playerScore += 1;
     updateScoreBoard()
     if (playerScore === 5){
-        setGameWinner('computer')
+        setGameWinner('You');
         return;
     }
     //console.log('player: ' + playerScore);
@@ -107,8 +107,8 @@ function updatePlayerScore(){
 }
 
 function updateScoreBoard(){
-    const player = document.getElementById('player');
-    const cpu = document.getElementById('computer');
+    const player = document.getElementById('playerscore');
+    const cpu = document.getElementById('cpuscore');
     //console.log(div);
     player.textContent = playerScore;
     cpu.textContent = cpuScore;
@@ -119,7 +119,7 @@ function setGameWinner(winner){
     updateScoreBoard()
     const gameWinner = document.querySelector(`#win-text`);
     console.log('debug' + gameWinner);
-    gameWinner.textContent = `${winner} won!  Score was: ${playerScore} to ${cpuScore}!`;
+    gameWinner.textContent = `${winner} won the battle! Score was: ${playerScore} to ${cpuScore}!`;
     resetScores();
 }
 

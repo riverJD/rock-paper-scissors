@@ -5,42 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
+    <script src='spearsarcherscalvary.js' defer></script>
 </head>
 <body>
-    <script src="spearsarcherscalvary.js" defer></script>
-    
-    <div class="game">
-    <div class="ui">
-        <div class="button">
-
-            <input class="card" id="spears" type="image" src="./images/samurai4.jpg">
-        </div>
-        <div class="button">     
-            <input class="card" id="archers" type="image" src="./images/archer2.jpg">
-
-        </div>
-        <div class="button">
-            <input class="card" id="calvary" type="image" src="./images/calvary.jpg">
-
-        </div>
-    </div>
     <div class="scoreboard">
         <div class="score">
             <div id="win-text"></div>
-            <div id="player"></div>
-            <div id="computer"></div>
+            <div id="player">Player Score:
+                <divi id="playerscore">0</div>
+            </div>
+            <div id="computer">Opponent Score:
+                <div id="cpuscore">0</div>
+            </div>
             <div id="score-text"></div>
         </div>
     </div>
+    <div class="game">
+        <div id="title">The Art of War
+            <div id="subtitle">A game of spears, arrows and horses</div>
+        </div>
+    
     <div class="map">
         <div class="region">
             <div class="region-text"></div>
-            <img src="./images/territory2.jpg">
+            <img class="region2" src="./images/territory2.jpg">
         </div>
+        <div class="ui">
+            <div class="deck">
+            <div class="button">
+                <input class="card" id="spears" type="image" src="./images/samurai4.jpg">
+            </div>
+            <div class="button">     
+                <input class="card" id="archers" type="image" src="./images/archer2.jpg">
+
+            </div>
+            <div class="button">
+                <input class="card" id="calvary" type="image" src="./images/calvary.jpg">
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+    <div class="text">
+        <h3>Text header</h3>
+        <div id="instructions">Doit tgggto rule the day?</div>
 
 
     </div>
-</div>
+
 
 </body>
 </html>

@@ -1,5 +1,108 @@
+
+body{
+    display: flex;
+    justify-content: center;
+    background-color: #d8c395;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+
+.game{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 100px 0px;
+    flex: 0 0 auto;
+    background-color: #c0a270;
+
+}
+
+#title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 48px;
+    background-color: #c0a270;
+    border: 1px dotted red;
+
+}
+
+#subtitle{
+    font-size: 24px;
+}
+
+.scoreboard,
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 24px;
+    color: black;
+    font-weight: 800;
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    height: 800px;
+
+    background-color: #c0a270;
+    justify-content: flex-start;
+
+
+}
+
+
+
+.score{
+    display: flex;
+    flex-direction: column;
+}
+
+#player,
+#computer{
+    display: flex;
+    border: 1px dotted blue;
+}
+
+.map{
+    
+    display: flex;
+    flex-direction: column;
+    border: 10px solid #c0a270;
+}
+
+.text{
+    display: flex;
+}
+
 .card{
     display: flex;
     height: auto;
-    width: 300px;
+    width: 200px;
+}
+
+.region2{
+    display :flex;
+    height: auto;
+    width: 750px;
+
+}
+
+.deck{
+    display: flex;
+    width: 750px;
+    justify-content: space-between;
+    margin-top: 20px;
+
+}
+
+.selected{
+    border: 5px solid #d3cabb;
+    margin-top: 30px;
+    scale: 1.2;
 }
