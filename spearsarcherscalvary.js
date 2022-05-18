@@ -44,6 +44,7 @@ function choiceToString(selection){
 function playRound(playerSelection, computerSelection){
   
     if (playerSelection === computerSelection){
+        updateScoreBoard();
         setRoundWinnerText(`Tie!  You both chose ${choiceToString(playerSelection)}`);
     }
     // Adding 1 to playerSelection and performing %(number of choice) will wrap the highest

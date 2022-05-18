@@ -21,18 +21,6 @@ body{
 
 }
 
-footer{
-    display: flex;
-    justify-content: center;
-
-    margin-top: auto;
-    height: 50px;
-    border-top: 10px solid #dbccab;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    
-    background-color: #c0a270;
-}
 
 .game{
     display: flex;
@@ -87,15 +75,15 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 
     min-width: 200px;
     max-width: 300px;
-    height: 800px;
-    max-height: 800px;
-    flex: 1;
+    min-height: 800px;
+    
+    flex: 1 1 0;
     padding: 10px;
     border: 10px solid #dbccab;
+  
 
     font-size: 24px;
     font-weight: 800;
@@ -111,32 +99,50 @@ footer{
 .instructions img{
    height: auto; 
     width: 100px;
+    border: 3px solid #d8c395;
+    border-radius: 5px;
+   
 }
 
 .instructions{
     font-size: 18px;
+   
 }
 
+.instructions h3{
+    font-size: 28px;
+
+}
+}
 
 .text-content{
-
-    
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    
+
+}
+
+#scorecenter{
+    width: auto;
+    height: 400px;
+    background-color: #687450;
+
 }
 
 .icons{
     font-size: smaller;
+  
     
 }
 
 .icon{
     
-    display: flex;
-    justify-content: flex-start;
+    display: flex; 
+    align-items: center;
     flex: 0 0 auto;
-    border: 1px solid red;
+    padding: 5px;
+    gap: 10px;
+  
+
 }
 
 .score{
@@ -147,7 +153,7 @@ footer{
 #player,
 #computer{
     display: flex;
-    border: 1px dotted blue;
+
 }
 
 .map{
@@ -155,11 +161,7 @@ footer{
     display: flex;
     flex-direction: column;
     border: 10px solid #c0a270;
-
-
 }
-
-
 
 .card{
     display: flex;
@@ -167,10 +169,17 @@ footer{
     width: 200px;
     border: 10px solid #687450;
     border-radius: 10px;
+    opacity: 70%;
 }
 
 .card:hover{
     border: 20px solid #687450;
+    opacity: 100%;
+}
+
+.card#calvary{
+    border: 20px solid #687450;
+    opacity: 100%;
 }
 
 .region2{
@@ -195,7 +204,40 @@ footer{
     scale: 1.5;
 }
 
+.strong,
+.weak{
+    font-size: 18px;
+    font-weight: 900;
+}
+.strong{
+    color: #506824;
+}
+.weak{
+    color: rgb(182, 49, 49);
+}
+
+#text-content-footer{
+    margin-bottom: 20px;
+}
+
 #suntzu{
     font-size: 16px;
     font-style: oblique;
+    margin-bottom: 20px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    margin-top: auto;
+    height: 50px;
+    border-top: 10px solid #dbccab;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+    font-weight: 900;
+    color:#687450;
+    background-color: #c0a270;
 }
