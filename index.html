@@ -5,26 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
-    <script src='spearsarcherscalvary.js' defer></script>
+    <script src='sac.js' defer></script>
 </head>
 <body>
     <div class="main">
         <div class="scoreboard">
             <div class="score">
-                <div id="win-text"></div>
-                <div id="player">Battles Won:
+                
+                <div id="player">Skirmishes Won:
                     <div id="playerscore">0</div>
                 </div>
                 <div><br></div>
-                <div id="computer">Battles Lost:
+                <div id="computer">Skirmishes Lost:
                     <div id="cpuscore">0</div>
                 </div>
-                <div id="score-text"></div>
+                <div id="score-text">The Skirmish has yet to begin.</div>
+                
                                
             </div>
-            <div id="scorecenter">Something will go here eventually
+            <div id="scorecenter">
+                <div class="win-text" id="battle1"></div>
+                <div class="win-text" id="battle2"></div>
+                <div class="win-text" id="battle3"></div>
             
             </div>
+            <div><br><br></div>
             <div id="suntzu">“If you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat. If you know neither the enemy nor yourself, you will succumb in every battle.” -Sun Tzu, The Art of War</div>
         </div>
         <div class="game">
@@ -39,15 +44,16 @@
                 </div>
                 <div class="ui">
                     <div class="deck">
-                        <div class="button">
+                       <div class="button">
                         <input class="card" id="spears" type="image" src="./images/samurai4.jpg">
-                        </div>
-                        <div class="button">     
-                            <input class="card" id="archers" type="image" src="./images/archer2.jpg">
-                        </div>
+                       </div>
                         <div class="button">
-                            <input class="card" id="calvary" type="image" src="./images/calvary.jpg">
+                            <input class="card" id="archers" type="image" src="./images/archer2.jpg">
+                        </div> 
+                       <div class="button">
+                            <input class="card" id="cavalry" type="image" src="./images/cavalry.jpg">
                         </div>
+                      
                     </div>          
                 </div>
             </div>
@@ -55,23 +61,23 @@
     <div class="text-content">
         <div class="instructions">
         <div class="instructions-text">
-        <h3>Instructions</h3>
-        <h4>A simple game of ancient warfare.</h4>
-        <h4>Select which units will enter the battlefield.</h4>
+        <div id="instruction-header">Instructions</div>
+        <div id="instruction-sub">A simple game of ancient warfare.</div>
+        <div>Select which units will enter the battlefield:</div>
         </div>
-        <div class="icons">
+           <div class="icons">
             <div class="icon" id="spearicon">
-                <img src="images/samurai2.jpg"><div>Your foot-soldiers have spears, and are very strong against <div class="strong">CALVARY.</div> They are vunerable to <div class="weak">ARCHERS</div></div>
+                <img src="images/samurai2.jpg"><div>Your foot-soldiers have spears, and are very strong against <div class="strong">CAVALRY.</div> They are vunerable to <div class="weak">ARCHERS</div></div>
             </div>
             <div class="icon" id="archericon">
-                <img src="images/archer.jpg"><div>Your archers have powerful bows, which can take out <div class="strong">SPEARS</div> from a distance.  They are weak to <div class="weak">CALVARY</div></div>
+                <img src="images/archer.jpg"><div>Your archers have powerful bows, which can take out <div class="strong">SPEARS</div> from a distance.  They are weak to <div class="weak">CAVALRY</div></div>
             </div>
-            <div class="icon" id="calvaryicon">
-                <img src="images/calvary2.jpg"><div>Your light-calvary units can swiftly run down enemy<div class="strong">ARCHERS</div> before they do real damage. They are easily killed by <div class="weak">SPEARS</div></div>
+            <div class="icon" id="cavalryicon">
+                <img src="images/calvary2.jpg"><div>Your light-cavalry units can swiftly run down enemy<div class="strong">ARCHERS</div> before they do real damage. They are easily killed by <div class="weak">SPEARS</div></div>
             </div>
         </div>
     </div>
-    <div id="text-content-footer">The first to win five key battles will take control of the region!</div> 
+    <div id="text-content-footer">Win five skirmishes to win the battle. There will be three battles.  The side with the most wins will take victory in the conflict.</div> 
         
     </div>
     </div>

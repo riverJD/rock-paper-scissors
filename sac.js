@@ -2,6 +2,8 @@
 
 let cpuScore;
 let playerScore;
+let cpuBattlesWon;
+let playerBattlesWon;
 
 resetScores();
 // Randomly generate a choice for the computer
@@ -9,7 +11,7 @@ function computerSelection() {
     return Math.floor(Math.random() * 3);
 }
 
-// Convert player choice (string) to number for comparison
+// Convert player choice (string) to number for numerical comparison
 function choiceToNumber(selection){
     switch (selection.toLowerCase()){
         case 'spears':
@@ -18,7 +20,7 @@ function choiceToNumber(selection){
         case 'archers': 
             return 1;
 
-        case 'calvary':
+        case 'cavalry':
             return 2;
 
         default:
@@ -26,7 +28,7 @@ function choiceToNumber(selection){
 
     }
 }
-// Convert numerical choice to string for use in game
+// Convert numerical choice to string for use in flavor text/game
 function choiceToString(selection){
     switch (selection){
         case 0:
@@ -36,13 +38,16 @@ function choiceToString(selection){
             return 'Archers';
 
         case 2:
-            return 'Calvary';
+            return 'Cavalry';
 
     }
 }
 
+// Play one round/skirmish. 
 function playRound(playerSelection, computerSelection){
   
+
+    // 
     if (playerSelection === computerSelection){
         updateScoreBoard();
         setRoundWinnerText(`Tie!  You both chose ${choiceToString(playerSelection)}`);
@@ -86,7 +91,7 @@ function updateCpuScore(){
     cpuScore += 1;
     updateScoreBoard()
     if (cpuScore === 5){
-        setGameWinner('Opponent');
+        setBattleWinner('Opponent');
         return;
     }
  
@@ -100,7 +105,7 @@ function updatePlayerScore(){
     playerScore += 1;
     updateScoreBoard()
     if (playerScore === 5){
-        setGameWinner('You');
+        setBattleWinner('You');
         return;
     }
     //console.log('player: ' + playerScore);
@@ -115,7 +120,7 @@ function updateScoreBoard(){
     cpu.textContent = cpuScore;
 }
 
-function setGameWinner(winner){
+function setBattleWinner(winner){
     
     updateScoreBoard()
     const gameWinner = document.querySelector(`#win-text`);
