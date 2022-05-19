@@ -2,8 +2,9 @@
 
 let cpuScore;
 let playerScore;
-let cpuBattlesWon;
-let playerBattlesWon;
+let cpuBattlesWon = 0;
+let playerBattlesWon = 0;
+let battlecount;
 
 resetScores();
 // Randomly generate a choice for the computer
@@ -91,7 +92,7 @@ function updateCpuScore(){
     cpuScore += 1;
     updateScoreBoard()
     if (cpuScore === 5){
-        setBattleWinner('Opponent');
+        setBattleWinner('computer');
         return;
     }
  
@@ -105,7 +106,7 @@ function updatePlayerScore(){
     playerScore += 1;
     updateScoreBoard()
     if (playerScore === 5){
-        setBattleWinner('You');
+        setBattleWinner('player');
         return;
     }
     //console.log('player: ' + playerScore);
@@ -123,10 +124,26 @@ function updateScoreBoard(){
 function setBattleWinner(winner){
     
     updateScoreBoard()
-    const gameWinner = document.querySelector(`#win-text`);
-    console.log('debug' + gameWinner);
-    gameWinner.textContent = `${winner} won the battle! Score was: ${playerScore} to ${cpuScore}!`;
+    let wintext;
+    
+    if (winner === 'player'){
+        playerBattlesWon += 1;
+        wintext = `You`;
+    }
+    else{
+        cpuBattlesWon += 1;
+        wintext = 'Opponent';
+    }
+    battlecount = playerBattlesWon + cpuBattlesWon;
+
+    const battleWinner = document.querySelector(`.win-text#battle${battlecount}`);
+    console.log('debug' + battleWinner);
+    battleWinner.innerHTML = `${wintext} won the battle! Score was: ${playerScore} to ${cpuScore}!`;
     resetScores();
+    if (battlecount === 3)
+    {
+        endGame();
+    }
 }
 
 function resetScores(){
