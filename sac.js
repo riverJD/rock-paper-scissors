@@ -121,6 +121,8 @@ function updateScoreBoard(){
     cpu.textContent = cpuScore;
 }
 
+// Will communicate winner to page, and track how many battles
+// have been played.  Prompt to reset game one game over. 
 function setBattleWinner(winner){
     
     updateScoreBoard()
@@ -136,7 +138,9 @@ function setBattleWinner(winner){
     }
     battlecount = playerBattlesWon + cpuBattlesWon;
 
+
     const battleWinner = document.querySelector(`.win-text#battle${battlecount}`);
+    battleWinner.classList.remove('inactive');
     console.log('debug' + battleWinner);
     battleWinner.innerHTML = `${wintext} won the battle! Score was: ${playerScore} to ${cpuScore}!`;
     resetScores();

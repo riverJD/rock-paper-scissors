@@ -18,7 +18,7 @@ body{
     justify-content: center;
     padding: 10px;
     align-items: flex-start;
-    transform: scale(0.9);
+    transform: scale(0.8);
 }
 
 
@@ -75,10 +75,10 @@ body{
 .text-content{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 
     margin-top: 50px;
-    min-width: 200px;
+    min-width: 220px;
     max-width: 300px;
     min-height: 800px;
     margin-left: -10px;
@@ -87,6 +87,7 @@ body{
     
     padding: 10px;
     border: 10px solid #687450;
+    gap: 10px;
   
 
     font-size: 24px;
@@ -100,7 +101,7 @@ body{
 }
 
 #score-text{
-    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 20px;
     font-style: oblique;
 }
@@ -172,7 +173,7 @@ body{
 .score{
     display: flex;
     flex-direction: column;
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     height: 150px;
     min-height: 100px;
  
@@ -185,14 +186,15 @@ body{
     flex: 0 1 auto;
     
     width: auto;
-    height: 400px;
+    height: 300px;
     border-radius: 10px;
     border: 10px solid #dbccab;
     margin: 20px 0px 20px 0px;
     gap: 20px;
     padding: 10px;
 
-    font-size: 32px;
+    font-size: 28px;
+    font-weight: 900;
 }
 
 .inactive{
@@ -202,8 +204,9 @@ body{
 
 #player,
 #computer{
-    font-size: 32px;
+    font-size: 28px;
     display: flex;
+    flex: 0;
 
 }
 
