@@ -8,8 +8,6 @@ body{
     min-height: 100vh;
     background-color: #d8c395;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    
-    
  
 }
 
@@ -76,6 +74,7 @@ body{
     flex-direction: column;
     justify-content: space-around;
 
+    flex: 1 0 auto;
     margin-top: 50px;
     min-width: 220px;
     max-width: 300px;
