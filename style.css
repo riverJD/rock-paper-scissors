@@ -15,7 +15,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    transform: scale(0.7);
+    transform: scale(0.75);
 }
 
 
@@ -327,6 +327,16 @@ footer{
     border-top: 10px solid #687450;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.footer-text{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#namelink{
+    margin-left: 10px;
 }
 
 .modal.win,
