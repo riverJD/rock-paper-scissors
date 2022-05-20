@@ -1,4 +1,7 @@
-// Computer Picks R/P/S
+// Play a game of Rock Paper Scissors with a different flavor
+// I would refactor this (and may someday) to be more object-oriented
+// but for now it's a quick and dirty demonstration of css/javascript that I
+// learned over the weekend.
 
 let cpuScore;
 let playerScore;
@@ -6,7 +9,11 @@ let cpuBattlesWon = 0;
 let playerBattlesWon = 0;
 let battlecount;
 
-resetScores();
+// Victory Conditions / Not flexible
+const SKIRMISH_WINS_NEEDED = 5;
+const BATTLE_WINS_NEEDED = 3;
+const UNIT_TYPE_CHOICES = 3;
+
 // Randomly generate a choice for the computer
 function computerSelection() { 
     return Math.floor(Math.random() * 3);
@@ -44,18 +51,16 @@ function choiceToString(selection){
     }
 }
 
-// Play one round/skirmish. 
+// Play one round/skirmish 
 function playRound(playerSelection, computerSelection){
   
-
-    // 
     if (playerSelection === computerSelection){
         updateScoreBoard();
         setRoundWinnerText(`Tie!  You both chose ${choiceToString(playerSelection)}`);
     }
     // Adding 1 to playerSelection and performing %(number of choice) will wrap the highest
     // number choice.  If this number is equal to computerSelection, player loses. 
-    else if ((playerSelection + 1) % 3 === computerSelection){
+    else if ((playerSelection + 1) % UNIT_TYPE_CHOICES === computerSelection){
         updateCpuScore();
         setRoundWinnerText(`You lose! ${choiceToString(computerSelection)} beats ${choiceToString(playerSelection)}!`);
     }
@@ -65,64 +70,47 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-let buttons = document.querySelectorAll('.button');
-console.log(buttons);
-
-buttons.forEach(button => {
-    button.addEventListener('click', () => { 
-        
-        playRound(playerSelection(button.firstElementChild.getAttribute('id')), computerSelection());
-    
-    });
-});
-
-function playerSelection(choice) { return choiceToNumber(choice) };
-
+function playerSelection(choice) { 
+    return choiceToNumber(choice) 
+};
 
 function setRoundWinnerText(winner){
     const div = document.querySelector('#score-text');   
-    //console.log(div);
     div.textContent = winner;
     div.childElementCount
 
 }
 
+// Check win conditions for player and cpu
 function updateCpuScore(){
-    
     cpuScore += 1;
     updateScoreBoard()
-    if (cpuScore === 5){
+    
+    if (cpuScore === SKIRMISH_WINS_NEEDED){
         setBattleWinner('computer');
         return;
     }
- 
-    console.log('cpu' + cpuScore);
-
-    //console.log(div);
-
 }
 function updatePlayerScore(){
-    
     playerScore += 1;
     updateScoreBoard()
-    if (playerScore === 5){
+    
+    if (playerScore === SKIRMISH_WINS_NEEDED){
         setBattleWinner('player');
         return;
     }
-    //console.log('player: ' + playerScore);
 
 }
-
+// Update skirmish scoreboard
 function updateScoreBoard(){
     const player = document.getElementById('playerscore');
     const cpu = document.getElementById('cpuscore');
-    //console.log(div);
     player.textContent = playerScore;
     cpu.textContent = cpuScore;
 }
 
-// Will communicate winner to page, and track how many battles
-// have been played.  Prompt to reset game one game over. 
+// Will communicate battle winner, and track how many battles
+// have been played. End game after three battles.
 function setBattleWinner(winner){
     
     updateScoreBoard()
@@ -137,26 +125,64 @@ function setBattleWinner(winner){
         wintext = 'Opponent';
     }
     battlecount = playerBattlesWon + cpuBattlesWon;
+    console.log(battlecount);
 
-
+    // Activate text to display winner of battle
     const battleWinner = document.querySelector(`.win-text#battle${battlecount}`);
     battleWinner.classList.remove('inactive');
     console.log('debug' + battleWinner);
-    battleWinner.innerHTML = `${wintext} won the battle! Score was: ${playerScore} to ${cpuScore}!`;
-    resetScores();
-    if (battlecount === 3)
-    {
+    battleWinner.innerHTML = `${wintext} won the battle ${playerScore} to ${cpuScore}!`;
+    
+    if (battlecount === BATTLE_WINS_NEEDED){
+        console.log("ending game..");
         endGame();
     }
+    else {resetScores()}
+
 }
 
+
 function resetScores(){
-    
     cpuScore = 0;
     playerScore = 0;
     
 }
+// Initialize Game Content
+function startGame(){
+    resetScores();
+    
+    // UI for player selecting their unit type
+    let buttons = document.querySelectorAll('.button');  
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {    
+            playRound(playerSelection(button.firstElementChild.getAttribute('id')), computerSelection());
+        });
+    });
+    }
 
-//game();
+ // Creates a popup window declaring victory or loss and allows player to
+// reset the game
+function endGame(){
 
-//console.log(playRound(getPlayerSelection(), computerPlay()));
+    let winFlag;
+
+    if (playerBattlesWon > cpuBattlesWon){
+        winFlag ='victory';
+    }
+    else {
+        winFlag = 'loss'
+    }
+
+    const modal = document.querySelector(`#${winFlag}Screen`);
+    const restart = document.querySelector(`.${winFlag}-content`);
+    modal.style.display = "block";
+
+    restart.onclick = () => {
+        resetScores(); 
+        modal.style.display = "none"; 
+        // this is a lazy way to reset game, will improve later
+        location.reload();
+    };
+}
+
+startGame();
